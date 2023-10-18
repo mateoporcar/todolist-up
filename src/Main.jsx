@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
     flex: 1,
     // backgroundColor: 'red',
-    padding: 20
+    padding: 19
   }
 })
+
+
+
