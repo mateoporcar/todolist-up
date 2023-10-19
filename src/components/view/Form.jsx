@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Agregar } from './Agregar'
 import { Text, TextInput, SafeAreaView, StyleSheet, Button} from 'react-native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Save } from '../actions/Save'
 
-export function ContadorWrapper () {
+export function Form () {
   const [id, onChangeId] = React.useState(0);
   const [nombre, onChangeText] = React.useState('');
   const [descripcion, onChangeDesc] = React.useState('');
@@ -14,17 +14,18 @@ export function ContadorWrapper () {
     var year = new Date().getFullYear();
     return date + '-' + month + '-' + year;
     }
-  async function storeData (value) {
-    try {
-      console.log(value)
-      const jsonValue = JSON.stringify(value);
-      await AsyncStorage.setItem('my-key', jsonValue);
-      AsyncStorage.getAllKeys();
-      onChangeId(id + 1)
-    } catch (e) {
-      // saving error
-    }
-  };
+//  async function storeData (value) {
+//    try {
+//      console.log(value)
+//      const jsonValue = JSON.stringify(value);
+//      await AsyncStorage.setItem('my-key', jsonValue);
+//      AsyncStorage.getAllKeys();
+//      onChangeId(id + 1)
+//    } catch (e) {
+//      // saving error
+//    }
+//  };
+
 
   return (
     <>
@@ -45,12 +46,8 @@ export function ContadorWrapper () {
           value={descripcion}
         />
       </SafeAreaView>
-      <Button
-        onPress={() => storeData({id, nombre, descripcion})}
-        title="Agregar"
-        color="#841584"
-        accessibilityLabel="Guardar información"
-      />
+      <Save value={{id, nombre, descripcion}} />
+      
     </>
   )
 }
