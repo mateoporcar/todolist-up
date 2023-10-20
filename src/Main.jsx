@@ -1,6 +1,6 @@
 import React from 'react'
 import { StatusBar, StyleSheet, View } from 'react-native'
-import { ContadorWrapper } from './components/contador/ContadorWrapper'
+import { Form } from './components/view/Form'
 import Constants from 'expo-constants'
 
 const Main = () => {
@@ -8,7 +8,7 @@ const Main = () => {
     <>
       <StatusBar style='#fff' animated barStyle='light-content' />
       <View style={styles.container}>
-        <ContadorWrapper />
+        <Form />
       </View>
     </>
   )

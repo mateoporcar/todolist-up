@@ -7,18 +7,13 @@ export function ContadorWrapper () {
   const [id, onChangeId] = React.useState(0);
   const [nombre, onChangeText] = React.useState('');
   const [descripcion, onChangeDesc] = React.useState('');
-  const getCurrentDate=()=>{
-    var date = new Date().getDate();
-    var month = new Date().getMonth() + 1;
-    var year = new Date().getFullYear();
-    return date + '-' + month + '-' + year;
-    }
   async function storeData (value) {
     try {
-      console.log(value)
+      console.log(id, value)
       const jsonValue = JSON.stringify(value);
       await AsyncStorage.setItem('my-key', jsonValue);
       AsyncStorage.getAllKeys();
+      onChangeId(id + 1)
     } catch (e) {
       // saving error
     }
@@ -44,7 +39,7 @@ export function ContadorWrapper () {
         />
       </SafeAreaView>
       <Button
-        onPress={() => storeData({nombre, descripcion})}
+        onPress={() => storeData({id, nombre, descripcion})}
         title="Agregar"
         color="#841584"
         accessibilityLabel="Guardar información"
