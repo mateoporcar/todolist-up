@@ -7,12 +7,17 @@ export function Form() {
   const [id, onChangeId] = useState(0);
   const [nombre, onChangeText] = useState('');
   const [descripcion, onChangeDesc] = useState('');
-
+  const [tasks, setTasks] = useState([]);
 
 
   return (
     <>
       <Text>Agregue una nueva tarea:</Text>
+      {tasks.map((task)=>(
+        <ul>
+          <li>{task.nombre},{task.descripcion}</li>
+        </ul>
+      ))}
       <SafeAreaView>
         <TextInput
           style={styles.input}
@@ -26,7 +31,7 @@ export function Form() {
           placeholder="Descripción"
           value={descripcion}
         />
-        <Save id={id} nombre={nombre} descripcion={descripcion} onChangeId={onChangeId}/>
+        <Save id={id} nombre={nombre} descripcion={descripcion} onChangeId={onChangeId} setTasks={setTasks} tasks={tasks} />
       </SafeAreaView>
     </>
   );
