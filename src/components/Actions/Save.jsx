@@ -13,35 +13,12 @@ export function Save({ id, nombre, descripcion, onChangeId,setTasks,tasks }) {
       setTasks([...tasks, dataToStore]);
       const jsonValue = JSON.stringify(tasks);
       await AsyncStorage.setItem('my-key', jsonValue);
-      console.log(tasks)
       onChangeId(id + 1);
     } catch (error) {
       console.error('Error storing data:', error);
     }
   }
-  // const storeData = async () => {
-  //   try {
-  //     const dataToStore = {id, nombre, descripcion };
-  //     console.log(dataToStore)
-  //     console.log(tasks)
-
-  //     setTasks([...tasks, dataToStore]);
-  //     const jsonValue = JSON.stringify(tasks);
-  //     await AsyncStorage.setItem('my-key', jsonValue);
-  //     console.log(tasks)
-  //     // You may want to retrieve and handle keys with AsyncStorage.getAllKeys()
-
-  //     // Assuming onChangeId is a function to update the 'id' value, you can call it here
-  //     onChangeId(id + 1);
-  //   } catch (error) {
-  //     console.error('Error storing data:', error);
-  //   }
-  // };
-
-  // const addTarea = () => {
-  //   setTasks([...tasks, data])
-
-  // }
+  
 
   return (
     <Button
