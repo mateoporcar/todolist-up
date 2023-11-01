@@ -3,9 +3,9 @@ import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PropTypes from 'prop-types';
 
-export function Save({ id, nombre, descripcion, onChangeId,setTasks,tasks }) {
+export function Save({ id, nombre, descripcion, onChangeId, setTasks, tasks }) {
 
-  // const [tasks, setTasks] = useState([]);
+  //const [tasks, setTasks] = useState([]);
   const dataToStore = { id, nombre, descripcion, onChangeId }
   
   const storeData = async () => {
@@ -59,5 +59,4 @@ Save.propTypes = {
   descripcion: PropTypes.string.isRequired,
   onChangeId: PropTypes.func.isRequired,
 };
-
 

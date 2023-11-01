@@ -12,7 +12,7 @@ export function Save({ id, nombre, descripcion, onChangeId }) {
     //try {
       
       setTasks([...tasks, dataToStore]);
-    //  const jsonValue = JSON.stringify(tasks);
+     const jsonValue = JSON.stringify(tasks);
     //  await AsyncStorage.setItem('my-key', jsonValue);
       console.log(tasks)
        // You may want to retrieve and handle keys with AsyncStorage.getAllKeys()
