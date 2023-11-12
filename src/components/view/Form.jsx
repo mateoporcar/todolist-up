@@ -10,7 +10,6 @@ export function Form() {
   const [descripcion, onChangeDesc] = useState('');
   const [tasks, setTasks] = useState([]);
 
-
   return (
     <>
       <Text>Agregue una nueva tarea:</Text>
@@ -29,7 +28,7 @@ export function Form() {
         />
         <Save id={id} nombre={nombre} descripcion={descripcion} onChangeId={onChangeId} setTasks={setTasks} tasks={tasks} />
         <Table/>
-      </SafeAreaView>
+        </SafeAreaView>
     </>
   );
 }
